@@ -17,7 +17,9 @@
 
         @include('partials._nav')
 
-        @yield('content')
+        <div class="container pt-5">
+            @yield('content')
+        </div>
 
         <script src="{{asset('/js/app.js')}}" type="text/javascript"></script>
     </body>
