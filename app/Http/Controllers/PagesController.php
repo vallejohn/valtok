@@ -9,4 +9,8 @@ class PagesController extends Controller
     public function about(){
         return view('pages.about');
     }
+
+    public function blog(){
+        return view('pages.blog.index');
+    }
 }

@@ -6,10 +6,10 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">ABOUT <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('pages.about')}}">ABOUT <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">BLOG</a>
+                <a class="nav-link" href="{{route('pages.blog')}}">BLOG</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">PORTFOLIO</a>
