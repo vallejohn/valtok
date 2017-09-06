@@ -15,6 +15,5 @@ Route::get('/', 'PagesController@about')->name('pages.about');
 Route::get('/blog', 'PagesController@blog')->name('pages.blog');
 
 Route::prefix('admin')->group(function (){
-    Route::get('posts', function (){
-    })->name('admin.posts');
+    Route::resource('posts', 'PostController');
 });
