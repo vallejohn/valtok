@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
+use function Sodium\compare;
 
 class PostController extends Controller
 {
@@ -14,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index');
+        $posts = Post::all();
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -24,7 +27,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -43,9 +48,12 @@ class PostController extends Controller
         Post::create([
             'title' => $request->input('title'),
             'body' => $request->input('body'),
+            'category_id' => $request->input('category_id'),
+            'tag_id' => 1,
+            'published' => true
         ]);
 
-        return back();
+        return redirect('admin/posts');
     }
 
     /**

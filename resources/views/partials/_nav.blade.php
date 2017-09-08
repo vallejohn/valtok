@@ -9,7 +9,7 @@
                 <a class="nav-link" href="{{route('pages.about')}}">ABOUT <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('pages.blog')}}">BLOG</a>
+                <a class="nav-link" href="{{route('pages.blogIndex')}}">BLOG</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">PORTFOLIO</a>

@@ -12,8 +12,11 @@
 */
 
 Route::get('/', 'PagesController@about')->name('pages.about');
-Route::get('/blog', 'PagesController@blog')->name('pages.blog');
+Route::get('/blog', 'PagesController@blogIndex')->name('pages.blogIndex');
+Route::get('/blog/{post}', 'PagesController@blogShow')->name('pages.blogShow');
 
 Route::prefix('admin')->group(function (){
     Route::resource('posts', 'PostController');
 });
+
+Route::resource('categories', 'CategoryController');

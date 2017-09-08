@@ -35,7 +35,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'min:2|max:255|required'
+        ]);
+
+        Category::create([
+            'name' => $request->input('name')
+        ]);
+
+        return back();
     }
 
     /**

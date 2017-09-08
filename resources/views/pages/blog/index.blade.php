@@ -7,23 +7,20 @@
 
         </div>
         <div class="col-lg-8">
-            @for($i = 0; $i <= 5; $i++)
+            @foreach($posts as $post)
                 <div class="media pb-3">
                     <img class="d-flex mr-3 rounded-circle hidden-sm-down"
                          src="http://placehold.it/94x94"
                          alt="Generic placeholder image" style="width: 94px; height: 94px; ">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">Nulla vel metus scelerisque ante sollicitudin</h5>
-                        <p class="text-muted small mb-1">23 comments . 5 months ago | Technology</p>
+                        <h5 class="mt-0 mb-1"><a href="{{route('pages.blogShow', $post->id)}}">{{$post->title}}</a></h5>
+                        <p class="text-muted small mb-1">23 comments . {{$post->created_at->diffForHumans() . " | " . $post->category->name}}</p>
                         <p class="mt-0">
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                            Cras
-                            purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                            nisi
+                            {{str_limit($post->body, 180)}}
                         </p>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 @endsection
