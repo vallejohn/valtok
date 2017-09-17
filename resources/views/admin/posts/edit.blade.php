@@ -1,23 +1,23 @@
 @extends('admin.master')
 
 @section('content')
-    <h1>Create Post</h1>
+    <h1>Edit Post</h1>
     <section class="row">
         <div class="col-lg-8">
-            <form action="{{route('posts.store')}}" method="POST">
+            <form action="{{route('posts.update', $post->id)}}" method="POST">
                 {{csrf_field()}}
+                {{method_field('PUT')}}
                 <div class="form-group">
                     <label for="title">Enter Title</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="{{$post->title}}" required>
                 </div>
                 <div class="form-group">
-                    <select class="custom-select" style="width: 50%" name="category_id">
+                    <select required class="custom-select" style="width: 50%" name="category_id">
                         <option selected>Category</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @foreach($categories as $key => $value)
+                            <option value="{{$key}}">{{$value}}</option>
                         @endforeach
                     </select>
-
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategory">
                         Add Category
@@ -27,12 +27,12 @@
 
                 <div class="form-group">
                     <label for="exampleTextarea">Content</label>
-                    <textarea class="form-control" id="exampleTextarea" name="body" rows="5" required></textarea>
+                    <textarea class="form-control" id="exampleTextarea" name="body" rows="5" required>{{$post->body}}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-success">Publish</button>
                 <button type="submit" class="btn btn-primary btn-outline-primary">Save</button>
-                <button type="submit" class="btn btn-primary btn-outline-danger">Cancel</button>
+                <a href="{{route('posts.index')}}" class="btn btn-primary btn-outline-danger">Cancel</a>
             </form>
 
             <!-- Modal -->

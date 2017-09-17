@@ -75,7 +75,16 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit');
+        $categories = Category::all();
+
+        $categories_collection = $categories->mapWithKeys(function ($categories){
+            return [$categories->id => $categories->name];
+        });
+
+        return view('admin.posts.edit', [
+            'post' => $post,
+            'categories' => $categories_collection
+        ]);
     }
 
     /**
@@ -87,7 +96,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:2|max:255',
+            'body' => 'required|min:10',
+        ]);
+
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->category_id = $request->input('category_id');
+
+        $post->save();
+
+        return redirect('admin/posts');
     }
 
     /**
