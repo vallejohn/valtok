@@ -13,7 +13,7 @@
 
 Route::get('/', 'PagesController@about')->name('pages.about');
 Route::get('/blog', 'PagesController@blogIndex')->name('pages.blogIndex');
-Route::get('/blog/{post}', 'PagesController@blogShow')->name('pages.blogShow');
+Route::get('/blog/{slug}', 'PagesController@blogShow')->name('pages.blogShow');
 
 Route::prefix('admin')->group(function (){
     Route::resource('posts', 'PostController');

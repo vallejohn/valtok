@@ -18,8 +18,9 @@ class PagesController extends Controller
         return view('pages.blog.index', compact('posts'));
     }
 
-    public function blogShow(Post $post)
+    public function blogShow($slug)
     {
+        $post = Post::where('slug', '=', $slug)->first();
         return view('pages.blog.show', compact('post'));
     }
 }

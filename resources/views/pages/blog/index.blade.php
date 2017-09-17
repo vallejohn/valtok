@@ -13,7 +13,7 @@
                          src="http://placehold.it/94x94"
                          alt="Generic placeholder image" style="width: 94px; height: 94px; ">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1"><a href="{{route('pages.blogShow', $post->id)}}">{{$post->title}}</a></h5>
+                        <h5 class="mt-0 mb-1"><a href="{{route('pages.blogShow', $post->slug)}}">{{$post->title}}</a></h5>
                         <p class="text-muted small mb-1">23 comments . {{$post->created_at->diffForHumans() . " | " . $post->category->name}}</p>
                         <p class="mt-0">
                             {{str_limit($post->body, 180)}}

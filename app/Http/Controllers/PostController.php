@@ -42,12 +42,16 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|min:2|max:255',
+            'slug' => 'unique:posts,slug',
             'body' => 'required|min:10',
         ]);
 
+        $title = $request->input('title');
+
         Post::create([
-            'title' => $request->input('title'),
+            'title' => $title,
             'body' => $request->input('body'),
+            'slug' => str_slug($title, "-"),
             'category_id' => $request->input('category_id'),
             'tag_id' => 1,
             'published' => true
@@ -101,9 +105,12 @@ class PostController extends Controller
             'body' => 'required|min:10',
         ]);
 
-        $post->title = $request->input('title');
+        $title = $request->input('title');
+
+        $post->title = $title;
         $post->body = $request->input('body');
         $post->category_id = $request->input('category_id');
+        $post->slug = str_slug($title, "-");
 
         $post->save();
 
