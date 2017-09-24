@@ -14,7 +14,7 @@ class PagesController extends Controller
 
     public function blogIndex()
     {
-        $posts = Post::all();
+        $posts = Post::where('published', true)->get();
         return view('pages.blog.index', compact('posts'));
     }
 

@@ -11,6 +11,7 @@
                     <th>Title</th>
                     <th>Content</th>
                     <th>Created</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>

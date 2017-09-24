@@ -30,8 +30,15 @@
                     <textarea class="form-control" id="exampleTextarea" name="body" rows="5" required></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                        <input type="checkbox" class="custom-control-input" name="published" checked value=1>
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Publish this post</span>
+                    </label>
+                </div>
+
                 <button type="submit" class="btn btn-success">Publish</button>
-                <button type="submit" class="btn btn-primary btn-outline-primary">Save</button>
                 <button type="submit" class="btn btn-primary btn-outline-danger">Cancel</button>
             </form>
 

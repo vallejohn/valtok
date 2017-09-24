@@ -54,7 +54,7 @@ class PostController extends Controller
             'slug' => str_slug($title, "-"),
             'category_id' => $request->input('category_id'),
             'tag_id' => 1,
-            'published' => true
+            'published' => ($request->input('published') == null) ? false : true
         ]);
 
         return redirect('admin/posts');
