@@ -11,6 +11,8 @@
 
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
 
+        @yield('custom_stylesheet')
+
     </head>
     <body>
         <div class="text-center hidden-md-down" style="font-family: 'Lobster', cursive; font-size: 70px; opacity: 0.7">V.A.L</div>

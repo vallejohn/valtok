@@ -12,6 +12,8 @@
     <link href="{{ asset('/css/app_admin.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/dashboard.css') }}" rel="stylesheet" type="text/css">
 
+    @yield('custom_stylesheet')
+
 </head>
 <body>
 

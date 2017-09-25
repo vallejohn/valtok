@@ -20,7 +20,7 @@
                         <td>{{str_limit($post->title, 40)}}</td>
                         <td>{{str_limit($post->body, 50)}}</td>
                         <td>{{$post->created_at->diffForHumans()}}</td>
-                        <td><a href="{{route('posts.edit', $post->id)}}">Edit</a></td>
+                        <td><a href="{{route('posts.show', $post->id)}}">View</a></td>
                     </tr>
                 @endforeach
                 </tbody>
