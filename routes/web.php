@@ -15,8 +15,12 @@ Route::get('/', 'PagesController@about')->name('pages.about');
 Route::get('/blog', 'PagesController@blogIndex')->name('pages.blogIndex');
 Route::get('/blog/{slug}', 'PagesController@blogShow')->name('pages.blogShow');
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->middleware('auth')->group(function (){
     Route::resource('posts', 'PostController');
 });
 
 Route::resource('categories', 'CategoryController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
