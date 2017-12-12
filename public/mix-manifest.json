@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/app_admin.css": "/css/app_admin.css",
-    "/css/val_custom.css": "/css/val_custom.css"
+    "/css/val_custom.css": "/css/val_custom.css",
+    "/css/app_auth.css": "/css/app_auth.css"
 }
